@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Loosely based on: ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-devtools/minirootfs/scripts/build_miniroot
-# by Matt Doolin <matt@coolermonitor.com>
+# by <hypomnk@gmail.com>
 
 ISO="/dev/sr0"
 SOURCE="/mnt/source"
