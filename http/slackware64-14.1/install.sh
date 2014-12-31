@@ -89,6 +89,7 @@ a/which \
 a/xfsprogs \
 a/xz \
 ap/nano \
+ap/sudo \
 ap/slackpkg \
 n/curl \
 n/dhcpcd \
@@ -210,6 +211,7 @@ $ROOT/sbin/lilo -r $ROOT -C /etc/lilo.conf
 # add vagrant user
 $ROOT/usr/sbin/useradd -R $ROOT -d /home/vagrant -m -G wheel -c "Vagrant User" -r vagrant
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> $ROOT/etc/sudoers
+sed -i "s/^.*requiretty/#Defaults requiretty/" $ROOT/etc/sudoers
 
 # set root and vagrant password
 echo "root:vagrant" | $ROOT/usr/sbin/chpasswd -R $ROOT

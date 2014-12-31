@@ -1,16 +1,17 @@
 #!/bin/sh -x
 
 # set the time
-ntpdate -v -b in.pool.ntp.org
-date > /etc/vagrant_box_build_time
+# ntpdate -v -b in.pool.ntp.org
+# date > /etc/vagrant_box_build_time
 
 # install vagrant keys
-mkdir /home/vagrant/.ssh
-chmod 700 /home/vagrant/.ssh
-cd /home/vagrant/.ssh
-wget -O authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
-chown -R vagrant /home/vagrant/.ssh
-chmod -R go-rwsx /home/vagrant/.ssh
+# mkdir /home/vagrant/.ssh
+# chmod 700 /home/vagrant/.ssh
+# cd /home/vagrant/.ssh
+# wget -O authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
+# chown -R vagrant /home/vagrant/.ssh
+# chmod -R go-rwsx /home/vagrant/.ssh
+
 
 # As sharedfolders are not in defaults ports tree
 # We will use vagrant via NFS
