@@ -15,3 +15,4 @@ bin
 .coverage
 tmp
 packer_cache
+packer-slackware64-14.1-virtualbox
