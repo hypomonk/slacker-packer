@@ -6,7 +6,7 @@
   "provisioners": [
     {
       "environment_vars": [ "CHEF_VERSION={{user `chef_version`}}" ],
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} /usr/bin/sudo -S -E bash '{{.Path}}'",
       "scripts": [
         "scripts/slackware/postinstall.sh"
       ],
