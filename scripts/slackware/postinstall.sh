@@ -1,7 +1,5 @@
 #!/bin/sh -x
 
-# set the time
-ntpdate -v -b in.pool.ntp.org
 date > /etc/vagrant_box_build_time
 
 # install vagrant keys
@@ -18,9 +16,6 @@ chmod -R go-rwsx /home/vagrant/.ssh
 #echo 'rpcbind_enable="YES"' >> /etc/rc.conf
 #echo 'nfs_server_enable="YES"' >> /etc/rc.conf
 #echo 'mountd_flags="-r"' >> /etc/rc.conf
-
-# Enable passwordless sudo
-#echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers
 
 # disable X11 because vagrants are (usually) headless
 #cat >> /etc/make.conf << EOT

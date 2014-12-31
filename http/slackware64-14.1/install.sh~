@@ -222,4 +222,4 @@ sed -i 's/USE_DHCP\[0\]=.*/USE_DHCP\[0\]="yes"/g' $ROOT/etc/rc.d/rc.inet1.conf
 # configure minimum services
 chmod 755 $ROOT/etc/rc.d/rc.{snmp*,ssh*,ntp*,local,nfsd}
 
-reboot
+#reboot

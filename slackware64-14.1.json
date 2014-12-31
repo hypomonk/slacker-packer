@@ -6,7 +6,7 @@
   "provisioners": [
     {
       "environment_vars": [ "CHEF_VERSION={{user `chef_version`}}" ],
-      "execute_command": "echo 'vagrant' | {{.Vars}} /usr/bin/sudo -S -E bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E sh '{{.Path}}'",
       "scripts": [
         "scripts/slackware/postinstall.sh"
       ],
@@ -17,12 +17,13 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
+	"<enter><wait10><wait10><wait10>",
 	"<enter><wait>",
 	"<enter><wait>",
 	"dhcpcd eth0<enter><wait>",
 	"wget -O /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/slackware64-14.1/install.sh && chmod +x /tmp/install.sh && /tmp/install.sh {{ .Name }}<enter><wait>"
       ],
-      "boot_wait": "2m22s",
+      "boot_wait": "10s",
       "disk_size": 10140,
       "guest_os_type": "Linux_64",
       "http_directory": "http",
@@ -33,7 +34,7 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'shutdown -p now' > shutdown.sh; cat 'shutdown.sh' | su -",
+      "shutdown_command": "echo 'shutdown -h now' > shutdown.sh; cat 'shutdown.sh' | sudo su -",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vm_name": "packer-slackware64-14.1",
@@ -46,11 +47,12 @@
     {
       "type": "vmware-iso",
       "boot_command": [
+  "<enter><wait10><wait10><wait10>",
 	"<enter><wait>",
 	"<enter><wait>",
 	"dhcpcd eth0<enter><wait>",
 	"wget -O /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/slackware64-14.1/install.sh && chmod +x /tmp/install.sh && /tmp/install.sh {{ .Name }}<enter><wait>"      ],
-      "boot_wait": "2m22s",
+      "boot_wait": "10s",
       "disk_size": 10140,
       "guest_os_type": "linux",
       "http_directory": "http",
@@ -61,7 +63,7 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'shutdown -p now' > shutdown.sh; cat 'shutdown.sh' | su -",
+      "shutdown_command": "echo 'shutdown -h now' > shutdown.sh; cat 'shutdown.sh' | sudo su -",
       "vm_name": "packer-slackware64-14.1",
       "output_directory": "packer-slackware64-14.1-vmware",
       "tools_upload_flavor": "linux",
@@ -74,11 +76,12 @@
     {
       "type": "parallels-iso",
       "boot_command": [
+  "<enter><wait10><wait10><wait10>",
 	"<enter><wait>",
 	"<enter><wait>",
 	"dhcpcd eth0<enter><wait>",
 	"wget -O /tmp/install.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/slackware64-14.1/install.sh && chmod +x /tmp/install.sh && /tmp/install.sh {{ .Name }}<enter><wait>"      ],
-      "boot_wait": "2m22s",
+      "boot_wait": "10s",
       "disk_size": 10140,
       "guest_os_type": "linux",
       "http_directory": "http",
@@ -89,7 +92,7 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'shutdown -p now' > shutdown.sh; cat 'shutdown.sh' | su -",
+      "shutdown_command": "echo 'shutdown -h now' > shutdown.sh; cat 'shutdown.sh' | sudo su -",
       "parallels_tools_mode": "disable",
       "prlctl_version_file": ".prlctl_version",
       "vm_name": "packer-slackware64-14.1",
