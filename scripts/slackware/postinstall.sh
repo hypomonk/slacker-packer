@@ -6,7 +6,7 @@ date > /etc/vagrant_box_build_time
 mkdir /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
 cd /home/vagrant/.ssh
-wget -O authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
+wget --no-check-certificate -O authorized_keys 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
 chown -R vagrant /home/vagrant/.ssh
 chmod -R go-rwsx /home/vagrant/.ssh
 
